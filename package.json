@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/Gunzelb/coffee-tin#readme",
     "devDependencies": {
+        "dotenv": "^10.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^8.3.0",
@@ -25,5 +26,13 @@
         "jest": "^27.0.6",
         "prettier": "2.3.2"
     },
-    "dependencies": {}
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.3.3",
+        "moment": "^2.29.1",
+        "mysql2": "^2.3.0",
+        "sequelize": "^6.6.5",
+        "stripe": "^8.169.0"
+    }
 }
