@@ -16,7 +16,7 @@ Project.init(
             allowNull: false,
         },
         details: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         goal: {
             type: DataTypes.DECIMAL(10, 2),
