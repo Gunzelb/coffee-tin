@@ -16,7 +16,7 @@ Project.init(
             allowNull: false,
         },
         details: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         goal: {
             type: DataTypes.DECIMAL(10, 2),
@@ -24,6 +24,11 @@ Project.init(
             validate: {
                 min: 0,
             },
+        },
+        funded: {
+            type: DataTypes.DECIMAL(10, 2),
+            allowNull: false,
+            defaultValue: 0,
         },
         deadline: {
             type: DataTypes.STRING,
