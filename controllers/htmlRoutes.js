@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Project, User, Reward } = require('../models')
-// const authenticate = require('../utils/auth')
+const authenticate = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try {
@@ -36,17 +36,17 @@ router.get('/project/:id', async (req, res) => {
         })
 
         const project = projectInfo.get({ plain: true })
-        res.json(project)
-        // res.render('project', {
-        //     ...project,
-        //     logged_in: req.session.logged_in,
-        // })
+
+        res.render('project', {
+            ...project,
+            logged_in: req.session.logged_in,
+        })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.get('/profile/:id', async (req, res) => {
+router.get('/profile', authenticate, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             attributes: { exclude: ['password'] },
@@ -54,11 +54,11 @@ router.get('/profile/:id', async (req, res) => {
         })
 
         const user = userData.get({ plain: true })
-        res.send(user)
-        // res.render('profile', {
-        //     ...user,
-        //     logged_in: true,
-        // })
+
+        res.render('profile', {
+            ...user,
+            logged_in: true,
+        })
     } catch (err) {
         res.status(500).json(err)
     }
