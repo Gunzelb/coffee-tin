@@ -19,15 +19,16 @@
             </div>
             <footer class='card-footer'>
                     <div class='card-footer-item'>
-                        <p>
-                            <span class='has-text-weight-bold'>% </span> Funded
+                        <p class='has-text-weight-bold'>
+                            <span id='percentFunded'></span>%
+                            <span class="has-text-weight-normal">Funded</span>
                         </p>
                     </div>
                     <div class='card-footer-item'>
-                        <p>
-                            <span id='funded' class='has-text-weight-bold'>${{funded}}</span>
-                            raised of 
-                            <span id='goal' class='has-text-weight-bold'>${{goal}}</span>
+                        <p class='has-text-weight-bold'>
+                            $<span id='funded'>{{funded}}</span>
+                            <span class='has-text-weight-normal'>raised of</span>
+                            $<span id='goal'>{{goal}}</span>
                         </p>
                     </div>
                     <div class='card-footer-item'>
@@ -44,9 +45,9 @@
             <h3 class='title is-size-3'>Funding Rewards</h3>
         </div>
         {{#each project.rewards as |reward|}}
-        {{> rewardtiers}}
+        {{> rewardTiers}}
         {{/each}}
     </section>
 </article>
 
-<script src='/js/project.js'></script>
+<script src='/js/projectDetails.js'></script>
