@@ -1,20 +1,24 @@
 <section class='message'>
-    <a href='/project/{{id}}'>
-        <div class='message-header'>
-            <h3 class='title is-3'>
-                {{name}}
-            </h3>
-        </div>
-        <div class='message-body'>
-            <p class='content'>
-                {{details}}
-            </p>
-            <p class='content'>
-                {{funded}} raised of {{goal}}
-            </p>
-            <p class='content'>
-                Deadline: {{format_date deadline}}
-            </p>
-        </div>
-    </a>
+    <div class='message-header'>
+        <h3 class='title is-3'>
+            {{name}}
+        </h3>
+    </div>
+    <div class='message-body'>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Project Description:</h5>
+        <p class='content pt-2 pl-3'>
+            {{details}}
+        </p>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Current Funding:</h5>
+        <p class='content pt-2 pl-3'>
+            <span class='has-text-weight-bold'>${{funded}}</span>
+            raised of
+            <span class='has-text-weight-bold'>${{goal}}</span>
+        </p>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Funding Deadline:</h5>
+        <p class='content pt-2 pl-3'>
+            <span class='has-text-weight-bold'>{{deadline}}</span>
+        </p>
+        <a href='/project/{{id}}' class='button'>View Project</a>
+    </div>
 </section>

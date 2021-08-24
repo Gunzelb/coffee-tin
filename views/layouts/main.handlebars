@@ -7,8 +7,8 @@
             rel='stylesheet'
             href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
         />
-        <link rel='stylesheet' href='./css/style.css' />
-        <link rel='icon' href='./img/Coffee-Tin Icon.png' />
+        <link rel='stylesheet' href='/css/style.css' />
+        <link rel='icon' href='/img/Coffee-Tin Icon.png' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
         <link
@@ -18,11 +18,11 @@
     </head>
     <body>
         <header>
-            <nav class='navbar'>
+            <nav class='navbar has-shadow is-brand-gold'>
                 <div class='navbar-brand'>
                     <a href='/'>
                         <img
-                            src='C:\\Projects\Group Projects\coffee-tin\public\img\Coffee-Tin Logo.png'
+                            src='/img/Coffee-Tin Logo.png'
                             alt='Coffee Tin logo with a graphic coffee tin that has money coming out of it'
                         />
                     </a>
@@ -47,18 +47,19 @@
         <main>
             {{{body}}}
         </main>
-        <footer class='card-footer'>
+        <footer class='card-footer is-brand-gold'>
             <div class='card-footer-item'>
-                <img
-                    id='iconExample'
-                    src='./img/Coffee-Tin Icon.png'
-                    alt='a graphic coffee tin with money coming out of it'
-                />
+                <figure class='image is-32x32'>
+                    <img
+                        src='/img/Coffee-Tin Icon.png'
+                        alt='a graphic coffee tin with money coming out of it'
+                    />
+                </figure>
                 <p>&nbspCreated my free logo at&nbsp</p>
                 <a href='https://logomakr.com/'>LogoMakr.com</a>
             </div>
         </footer>
 
-        <script src='/public/js/main.js'></script>
+        <script src='/js/main.js'></script>
     </body>
 </html>

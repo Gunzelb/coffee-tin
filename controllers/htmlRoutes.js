@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         })
 
         const projects = projectInfo.map((info) => info.get({ plain: true }))
-        res.render('home', {
+        res.render('homepage', {
             projects,
             logged_in: req.session.logged_in,
         })

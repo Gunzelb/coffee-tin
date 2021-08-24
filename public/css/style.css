@@ -6,11 +6,6 @@
     display: none;
 }
 
-.navbar,
-.card-footer {
-    background-color: #f6b64f;
-}
-
 @media only screen and (max-width: 1024px) {
     .navbar-menu {
         background-color: #fdc367;
@@ -23,13 +18,18 @@ a.navbar-item:hover {
 
 main {
     background-color: #f8dbab;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 }
 
-.message-header {
-    background-color: #a10e12;
+.message-header, .is-brand-red {
+    background-color: rgb(189, 49, 54);
 }
 
-#iconExample {
-    height: 35px;
+.card {
+    background-color: #f5f5f5;
+}
+
+.is-brand-gold {
+    background-color: #f6b64f;
 }

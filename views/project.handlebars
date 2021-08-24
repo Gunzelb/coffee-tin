@@ -1,0 +1,52 @@
+<article class='container pt-5'>
+    <h1 class='title is-size-1'>{{name}}</h1>
+    <h5 class='subtitle is-size-5 is-italic pt-1'>Created by {{user.name}}</h5>
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-3'>Project Details</h3>
+        </div>
+        <div class='message-body'>
+            <p class='content'>{{details}}</p>
+        </div>
+    </section>
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-3'>Current Funding</h3>
+        </div>
+        <div class='card '>
+            <div class='card-content'>
+                <progress class='progress' value='20' max='100'></progress>
+            </div>
+            <footer class='card-footer'>
+                    <div class='card-footer-item'>
+                        <p>
+                            <span class='has-text-weight-bold'>% </span> Funded
+                        </p>
+                    </div>
+                    <div class='card-footer-item'>
+                        <p>
+                            <span id='funded' class='has-text-weight-bold'>${{funded}}</span>
+                            raised of 
+                            <span id='goal' class='has-text-weight-bold'>${{goal}}</span>
+                        </p>
+                    </div>
+                    <div class='card-footer-item'>
+                        <p>
+                            Funding Deadline: <span class='has-text-weight-bold'>{{deadline}}</span>
+                        </p>
+                    </div>
+            </footer>
+        </div>
+    </section>
+
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-size-3'>Funding Rewards</h3>
+        </div>
+        {{#each project.rewards as |reward|}}
+        {{> rewardtiers}}
+        {{/each}}
+    </section>
+</article>
+
+<script src='/js/project.js'></script>
