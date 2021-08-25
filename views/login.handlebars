@@ -30,18 +30,24 @@
                         id='loginFailed'
                     >
                         <p class='has-text-weight-bold'>Login Failed:</p>
-                        <p>Entered Email/Password not found</p>
+                        <p>Entered Email/Password not found!</p>
                     </div>
                     <div class='field'>
                         <input class='button' type='submit' value='Log In' />
                     </div>
                 </form>
+                <div class='notification is-warning is-light mt-6'>
+                    <h4 class='is-size-4'>
+                        Notice:
+                    </h4>
+                    <p>You must be logged in to view 'My Profile' or 'Create Project'</p>
+                </div>
             </section>
         </div>
         <div class='column is-offset-1'>
             <section class='pt-5'>
                 <h4 class='title is-size-4'>Register</h4>
-                <form>
+                <form id='registerForm'>
                     <div class='field'>
                         <label for='name' class='label'>Name</label>
                         <input
@@ -82,6 +88,20 @@
                             id='confirmPassword'
                             placeholder='Confirm Password...'
                         />
+                    </div>
+                    <div
+                        class='notification is-danger is-light hide'
+                        id='repeatEmail'
+                    >
+                        <p class='has-text-weight-bold'>Registration Failed:</p>
+                        <p>An account with this email already exists! </p>
+                    </div>
+                    <div
+                        class='notification is-danger is-light hide'
+                        id='confirmFailed'
+                    >
+                        <p class='has-text-weight-bold'>Registration Failed:</p>
+                        <p>Passwords do not match!</p>
                     </div>
                     <div class='field'>
                         <input

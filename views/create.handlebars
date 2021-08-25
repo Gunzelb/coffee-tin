@@ -1,33 +1,91 @@
+<article class='container'>
+    <section class='pt-5'>
+        <h3 class='title is-size-3'>Create New Project</h3>
+        <hr />
+        <form id='projectForm'>
+            <div class='field'>
+                <label for='projectName' class='label'>Project Name</label>
+                <input
+                    class='input'
+                    type='text'
+                    name='projectName'
+                    id='projectName'
+                    placeholder='Enter Project Name...'
+                    required
+                />
+            </div>
+            <div class='field'>
+                <label for='projectDetails' class='label'>Details</label>
+                <p class='control'>
+                    <textarea
+                        class='textarea'
+                        name='projectDetails'
+                        id='projectDetails'
+                        placeholder="What's the project for/about?"
+                        required
+                    ></textarea>
+                </p>
+            </div>
+            <div class='field'>
+                <label for='projectGoal' class='label'>Funding Goal</label>
+                <span class='input'>$
+                    <input
+                        class='input'
+                        type='number'
+                        name='projectGoal'
+                        id='projectGoal'
+                        placeholder="What's the funding goal?"
+                        required
+                    />
+                </span>
+            </div>
+            <div class='field'>
+                <label for='projectDeadline' class='label'>Deadline</label>
+                <input
+                    class='input'
+                    type='date'
+                    name='projectDeadline'
+                    id='projectDeadline'
+                    placeholder='What deadline would you like to set?'
+                    required
+                />
+            </div>
+            <div class='field'>
+                <label for='projectDeadline' class='label'>Tier</label>
+                <input
+                    class='input'
+                    type='number'
+                    name='projectDeadline'
+                    id='testTier'
+                    placeholder='What deadline would you like to set?'
+                    required
+                />
+            <div class='field'>
+                <div class='field'>
+                <label for='projectDeadline' class='label'>Description</label>
+                <input
+                    class='input'
+                    type='text'
+                    name='projectDeadline'
+                    id='testDesc'
+                    placeholder='What deadline would you like to set?'
+                    required
+                />
+            <div class='field'>
+                <input class='button' type='submit' value='Create Project' />
+            </div>
+            <div class='notification is-success is-light hide' id='projectCreated'>
+                <p class='has-text-weight-bold'>Project Created!</p>
+                <p>Returning home...</p>
+            </div>
+        </form>
+    </section>
+</article>
+
 <form>
-    <h3>Project Name</h3>
-    <input
-    required
-    id="projectName"
-    placeholder="What's the project called?"
-    />
-    <h3>Project Details</h3>
-    <input
-    required
-    id="projectDetails"
-    placeholder="What's the project for/about?"
-    />
-    <h3>Project Funding Goal</h3>
-    <input
-    required
-    type="number"
-    id="projectGoal"
-    placeholder="What's the funding goal?"
-    />
-    <h3>Project Funding Deadline</h3>
-    <input
-    required
-    type="datetime"
-    id="projectDeadline"
-    placeholder="What deadline would you like to set?"
-    />
     <h3>Project Funding Rewards</h3>
-    <section id="projectRewards"></section>
-    <input type="button" id="addReward" value="Add Reward" />
+    <section id='projectRewards'></section>
+    <input type='button' id='addReward' value='Add Reward' />
 </form>
 
-<script src="/coffee-tin/public/js/create.js"></script>
+<script src='/js/create.js'></script>

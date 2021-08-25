@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang='en'>
     <head>
         <meta charset='UTF-8' />
@@ -26,20 +27,24 @@
                             alt='Coffee Tin logo with a graphic coffee tin that has money coming out of it'
                         />
                     </a>
-                    <a href='' class='navbar-burger' id='navbarBurger'>
+                    <button class='navbar-burger' id='navbarBurger'>
                         <span></span>
                         <span></span>
                         <span></span>
-                    </a>
+                    </button>
                 </div>
                 <div id='navbarMenu' class='navbar-menu'>
                     <div class='navbar-end'>
                         <a href='/' class='navbar-item'>Home</a>
-                        <a href='/login' class='navbar-item'>Login/Register
-                            User</a>
-                        <a href='/profile' class='navbar-item hide'>My Projects</a>
-                        <a href='create.html' class='navbar-item hide'>Create
-                            Project</a>
+                        <a href='/profile' class='navbar-item'>My Profile</a>
+                        <a href='/create' class='navbar-item'>Create Project</a>
+                        {{#if logged_in}}
+                            <a id='logout' class='navbar-item'>Logout</a>
+                        {{else}}
+                            <a href='/login' class='navbar-item'>Login/Register
+                                User</a>
+                        {{/if}}
+
                     </div>
                 </div>
             </nav>

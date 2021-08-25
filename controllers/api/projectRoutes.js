@@ -1,15 +1,20 @@
 const router = require('express').Router()
-const { Project } = require('../../models')
-const authenticate = require('../../utils/auth')
+const { Project, Reward } = require('../../models')
+const { authenticate } = require('../../utils/auth')
 
 router.post('/', authenticate, async (req, res) => {
     try {
         const newProject = await Project.create({
-            ...req.body,
+            ...req.body.project,
             user_id: req.session.user_id,
         })
 
-        res.status(200).json(newProject)
+        const newRewards = await Reward.create({
+            ...req.body.rewards,
+            project_id: newProject.id,
+        })
+
+        res.status(200).json({newProject, newRewards})
     } catch (err) {
         res.status(400).json(err)
     }

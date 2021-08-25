@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const { Project, User, Reward } = require('../models')
-const authenticate = require('../utils/auth')
+const {forceLogin, authenticate} = require('../utils/auth')
 
-router.get('/', async (req, res) => {
+router.get('/', authenticate, async (req, res) => {
     try {
         const projectInfo = await Project.findAll({
             include: [
@@ -14,9 +14,10 @@ router.get('/', async (req, res) => {
         })
 
         const projects = projectInfo.map((info) => info.get({ plain: true }))
+
         res.render('homepage', {
             projects,
-            logged_in: req.session.logged_in,
+            logged_in: req.session.logged_in
         })
     } catch (err) {
         res.status(500).json(err)
@@ -46,9 +47,19 @@ router.get('/project/:id', async (req, res) => {
     }
 })
 
-router.get('/profile', authenticate, async (req, res) => {
+router.get('/create', forceLogin, authenticate, (req, res) => {
     try {
-        const userData = await User.findByPk(req.params.id, {
+        res.render('create', {
+            logged_in: true,
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/profile', forceLogin, authenticate, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.user.id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Project }],
         })
@@ -64,7 +75,7 @@ router.get('/profile', authenticate, async (req, res) => {
     }
 })
 
-router.get('/login', (req, res) => {
+router.get('/login', authenticate, (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/profile')
         return
