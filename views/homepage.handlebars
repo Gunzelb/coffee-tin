@@ -1,4 +1,7 @@
-<article>
-    <h2>Open Projects</h2>
-    <div id="projectList"></div>
+<article class='container pt-5'>
+    <h2 class='title is-2'>Open Projects</h2>
+
+    {{#each projects as |project|}}
+    {{> openProjects}}
+    {{/each}}
 </article>
