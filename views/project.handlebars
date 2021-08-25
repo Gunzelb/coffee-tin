@@ -44,9 +44,11 @@
         <div class='message-header'>
             <h3 class='title is-size-3'>Funding Rewards</h3>
         </div>
-        {{#each project.rewards as |reward|}}
-        {{> rewardTiers}}
-        {{/each}}
+        <div class="message-body">
+            {{#each rewards as |reward|}}
+            {{> rewardTiers}}
+            {{/each}}
+        </div>
     </section>
 </article>
 
