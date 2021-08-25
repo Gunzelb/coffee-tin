@@ -20,7 +20,6 @@
     },
     "homepage": "https://github.com/Gunzelb/coffee-tin#readme",
     "devDependencies": {
-        "dotenv": "^10.0.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-config-prettier": "^8.3.0",
@@ -31,6 +30,7 @@
     "dependencies": {
         "bcrypt": "^5.0.1",
         "connect-session-sequelize": "^7.1.1",
+        "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "express-handlebars": "^5.3.3",
         "express-session": "^1.17.2",
