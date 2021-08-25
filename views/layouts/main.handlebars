@@ -1,31 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coffee Tin</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./public/css">
-  </head>
-  <body>
-    <header>
-      <a href="main.html">
-        <h1>Coffee Tin</h1>
-        <img src="logolinkhere" alt="really cool logo" />
-      </a>
-      <nav>
-        <ul>
-          <li>
-            <a href="main.html" id='homeA'>Home</a>
-            <a href="login.html" id='login'>Login/Register User</a>
-            <a href="user.html" id='userProjects'>My Projects</a>
-            <a href="create.html" id='newProject'>Create Project</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-        {{{ body }}}
-    </main>
-  </body>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Coffee Tin</title>
+        <link
+            rel='stylesheet'
+            href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
+        />
+        <link rel='stylesheet' href='/css/style.css' />
+        <link rel='icon' href='/img/Coffee-Tin Icon.png' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+        <link
+            href='https://fonts.googleapis.com/css2?family=Raleway&display=swap'
+            rel='stylesheet'
+        />
+    </head>
+    <body>
+        <header>
+            <nav class='navbar has-shadow is-brand-gold'>
+                <div class='navbar-brand'>
+                    <a href='/'>
+                        <img
+                            src='/img/Coffee-Tin Logo.png'
+                            alt='Coffee Tin logo with a graphic coffee tin that has money coming out of it'
+                        />
+                    </a>
+                    <a href='' class='navbar-burger' id='navbarBurger'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <div id='navbarMenu' class='navbar-menu'>
+                    <div class='navbar-end'>
+                        <a href='/' class='navbar-item'>Home</a>
+                        <a href='/login' class='navbar-item'>Login/Register
+                            User</a>
+                        <a href='/profile' class='navbar-item hide'>My Projects</a>
+                        <a href='create.html' class='navbar-item hide'>Create
+                            Project</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {{{body}}}
+        </main>
+        <footer class='card-footer is-brand-gold'>
+            <div class='card-footer-item'>
+                <figure class='image is-32x32'>
+                    <img
+                        src='/img/Coffee-Tin Icon.png'
+                        alt='a graphic coffee tin with money coming out of it'
+                    />
+                </figure>
+                <p>&nbspCreated my free logo at&nbsp</p>
+                <a href='https://logomakr.com/'>LogoMakr.com</a>
+            </div>
+        </footer>
+
+        <script src='/js/main.js'></script>
+    </body>
 </html>
