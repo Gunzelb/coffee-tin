@@ -14,7 +14,41 @@ router.post('/', authenticate, async (req, res) => {
             project_id: newProject.id,
         })
 
-        res.status(200).json({newProject, newRewards})
+        res.status(200).json({ newProject, newRewards })
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
+
+router.put('/:id', authenticate, async (req, res) => {
+    try {
+        const updatedProject = await Project.update(
+            {
+                name: req.body.project.name,
+                details: req.body.project.details,
+                goal: req.body.project.goal,
+                deadline: req.body.project.deadline,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        )
+        console.log(updatedProject);
+
+        const updatedRewards = await Reward.update(
+            {
+                tier: req.body.rewards.tier,
+                description: req.body.rewards.description,
+            },
+            {
+                where: {
+                    project_id: req.params.id,
+                },
+            }
+        )
+        res.status(200).json({ updatedProject, updatedRewards })
     } catch (err) {
         res.status(400).json(err)
     }

@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Project, User, Reward } = require('../models')
-const {forceLogin, authenticate} = require('../utils/auth')
+const { forceLogin, authenticate } = require('../utils/auth')
 
 router.get('/', authenticate, async (req, res) => {
     try {
@@ -17,7 +17,7 @@ router.get('/', authenticate, async (req, res) => {
 
         res.render('homepage', {
             projects,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
         })
     } catch (err) {
         res.status(500).json(err)
@@ -42,6 +42,25 @@ router.get('/project/:id', async (req, res) => {
             ...project,
             logged_in: req.session.logged_in,
         })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/project/edit/:id', async (req, res) => {
+    try {
+        const projectInfo = await Project.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                { model: Reward },
+            ],
+        })
+
+        const project = projectInfo.get({ plain: true })
+        res.render('edit', { ...project, logged_in: true })
     } catch (err) {
         res.status(500).json(err)
     }

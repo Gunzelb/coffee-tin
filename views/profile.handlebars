@@ -1,7 +1,8 @@
-<article>
-    <h2>My Projects</h2>
-    <section id="userProjects"></section>
-    <form action="/create">
-        <input type="submit" value="Create New Project" />
-    </form>
+<article class='container pt-5'>
+    <h2 class='title is-2'>{{name}}'s Projects</h2>
+    {{#each projects as |project|}}
+    {{> userProjects}}
+    {{/each}}
 </article>
+
+<script src='/js/profile.js'></script
