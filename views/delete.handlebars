@@ -1,0 +1,91 @@
+<article class='container pt-5'>
+    <h1 class='title is-size-1'>{{name}}</h1>
+    <h5 class='subtitle is-size-5 is-italic pt-1'>Created by {{user.name}}</h5>
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-3'>Project Details</h3>
+        </div>
+        <div class='message-body'>
+            <p class='content'>{{details}}</p>
+        </div>
+    </section>
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-3'>Current Funding</h3>
+        </div>
+        <div class='card '>
+            <div class='card-content'>
+                <progress class='progress' value='20' max='100'></progress>
+            </div>
+            <footer class='card-footer'>
+                    <div class='card-footer-item'>
+                        <p class='has-text-weight-bold'>
+                            <span id='percentFunded'></span>%
+                            <span class="has-text-weight-normal">Funded</span>
+                        </p>
+                    </div>
+                    <div class='card-footer-item'>
+                        <p class='has-text-weight-bold'>
+                            $<span id='funded'>{{funded}}</span>
+                            <span class='has-text-weight-normal'>raised of</span>
+                            $<span id='goal'>{{goal}}</span>
+                        </p>
+                    </div>
+                    <div class='card-footer-item'>
+                        <p>
+                            Funding Deadline: <span class='has-text-weight-bold'>{{deadline}}</span>
+                        </p>
+                    </div>
+            </footer>
+        </div>
+    </section>
+
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-size-3'>Funding Rewards</h3>
+        </div>
+        <div class="message-body">
+            {{#each rewards as |reward|}}
+            {{> rewardTiers}}
+            {{/each}}
+        </div>
+    </section>
+</article>
+
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <section class='message'>
+        <div class='message-header'>
+            <h3 class='title is-size-3'>Warning!</h3>
+        </div>
+        <div class="message-body">
+            <div class="has-text-centered">
+                <p>Are you sure you want to delete <span class="is-underlined has-text-weight-bold">{{name}}</span>?</p>
+                <p class='content is-small pb-2'>(This cannot be undone)</p>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                    <button id='delete' class='button is-danger is-light is-outlined'>Delete</button>
+                </p>
+                <p class="control">
+                    <a id='cancel' href='/project/{{id}}' class='button is-dark is-outlined'>Cancel</a>  
+                </p>
+            </div>
+            <div
+                class='notification is-warning is-light hide'
+                id='projectDeleted'
+            >
+                <p class='has-text-weight-bold'>Project Deleted!</p>
+                <p>Returning home...</p>
+            </div>
+        </div>
+    </section>
+  </div>
+  <a href='/project/{{id}}' class="modal-close is-large" id='close'></a>
+</div>
+
+<input id='id' class="hide" value={{id}}/>
+
+
+<script src='/js/delete.js'></script>

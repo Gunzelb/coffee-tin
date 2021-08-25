@@ -60,7 +60,32 @@ router.get('/project/edit/:id', async (req, res) => {
         })
 
         const project = projectInfo.get({ plain: true })
-        res.render('edit', { ...project, logged_in: true })
+        res.render('edit', {
+            ...project,
+            logged_in: true,
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/project/delete/:id', async (req, res) => {
+    try {
+        const projectInfo = await Project.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                { model: Reward },
+            ],
+        })
+
+        const project = projectInfo.get({ plain: true })
+        res.render('delete', {
+            ...project,
+            logged_in: true,
+        })
     } catch (err) {
         res.status(500).json(err)
     }

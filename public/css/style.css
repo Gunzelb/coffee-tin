@@ -39,6 +39,14 @@ main {
     border-left: 0px;
 }
 
+.modal-content {
+    width: fit-content;
+}
+
+.modal-content .message-header {
+    justify-content: center;
+}
+
 #footer {
     position:relative;
     bottom:0px;
