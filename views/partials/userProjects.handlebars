@@ -1,0 +1,53 @@
+<section class='message'>
+    <div class='message-header'>
+        <h3 class='title is-3'>
+            {{name}}
+        </h3>
+    </div>
+    <div class='message-body'>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Project
+            Description</h5>
+        <p class='content pt-2 pl-3'>
+            {{details}}
+        </p>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Current Funding</h5>
+        <p class='content pt-2 pl-3 has-text-weight-bold'>
+            $<span>{{funded}}</span>
+            <span class='has-text-weight-normal'>raised of</span>
+            $<span>{{goal}}</span>
+        </p>
+        <h5 class='has-text-weight-bold is-underlined is-size-5'>Funding
+            Deadline</h5>
+        <p class='content pt-2 pl-3'>
+            <span class='has-text-weight-bold'>{{deadline}}</span>
+        </p>
+        <div class='columns'>
+            <div class='column'>
+                <a
+                    href='/project/{{id}}'
+                    class='button is-dark is-outlined'
+                >View Project</a>
+            </div>
+            <div class='column is-offset-6'>
+                <div class='field is-grouped'>
+                    <p class='control'>
+                        <a
+                            href='/project/edit/{{id}}'
+                            class='button is-info is-light is-outlined'
+                        >
+                            Edit Project
+                        </a>
+                    </p>
+                    <p class='control'>
+                        <a
+                            href='/project/delete/{{id}}'
+                            class='button is-danger is-light is-outlined'
+                        >
+                            Delete Project
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

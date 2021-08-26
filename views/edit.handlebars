@@ -1,8 +1,8 @@
 <article class='container'>
     <section class='pt-5'>
-        <h3 class='title is-size-3'>Create New Project</h3>
+        <h3 class='title is-size-3'>Edit Project</h3>
         <hr />
-        <form id='projectForm'>
+        <form id='editForm'>
             <div class='field'>
                 <label for='projectName' class='label'>Project Name</label>
                 <input
@@ -11,6 +11,7 @@
                     name='projectName'
                     id='projectName'
                     placeholder='Enter Project Name...'
+                    value='{{name}}'
                     required
                 />
             </div>
@@ -23,7 +24,7 @@
                         id='projectDetails'
                         placeholder="What's the project for/about?"
                         required
-                    ></textarea>
+                    >{{details}}</textarea>
                 </p>
             </div>
             <div class='columns'>
@@ -37,6 +38,7 @@
                                 name='projectGoal'
                                 id='projectGoal'
                                 placeholder="What's the funding goal?"
+                                value={{goal}}
                                 required
                             />
                         </span>
@@ -52,6 +54,7 @@
                             name='projectDeadline'
                             id='projectDeadline'
                             placeholder='What deadline would you like to set?'
+                            value={{deadline}}
                             required
                         />
                     </div>
@@ -66,7 +69,7 @@
                                 name='rewardDescription'
                                 id='rewardDescription'
                                 placeholder="What's the reward?"
-                            ></textarea>
+                            >{{rewards.[0].description}}</textarea>
                         </p>
                     </div>
                     <div class='field is-horizontal'>
@@ -81,6 +84,7 @@
                                             name='rewardTier'
                                             id='rewardTier'
                                             placeholder='Select Tier...'
+                                            value='{{rewards.[0].tier}}'
                                         >
                                             <option>1</option>
                                             <option>2</option>
@@ -96,17 +100,18 @@
                 </div>
             </div>
             <div class='field'>
-                <input class='button' type='submit' value='Create Project' />
+                <input class='button' type='submit' value='Save Edits' />
             </div>
             <div
-                class='notification is-success is-light hide'
-                id='projectCreated'
+                class='notification is-info is-light hide'
+                id='projectEdited'
             >
-                <p class='has-text-weight-bold'>Project Created!</p>
+                <p class='has-text-weight-bold'>Project Edited!</p>
                 <p>Returning home...</p>
-            </div>
+            </div>        
+        <input id='id' class="hide" value={{id}}/>
         </form>
     </section>
 </article>
 
-<script src='/js/create.js'></script>
+<script src='/js/edit.js'></script>

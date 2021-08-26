@@ -1,10 +1,10 @@
-const projCreated = document.querySelector('#projectCreated')
+const projEdited = document.querySelector('#projectEdited')
 
 const returnHome = () => {
     document.location.replace('/')
 }
 
-const projectCreationHandler = async (event) => {
+const projectEditHandler = async (event) => {
     event.preventDefault()
 
     const name = document.querySelector('#projectName').value.trim()
@@ -13,9 +13,10 @@ const projectCreationHandler = async (event) => {
     const deadline = document.querySelector('#projectDeadline').value.trim()
     const tier = document.querySelector('#rewardTier').value.trim()
     const description = document.querySelector('#rewardDescription').value.trim()
+    const id = document.querySelector('#id').value.trim()
 
-    const response = await fetch('/api/projects/', {
-        method: 'POST',
+    const response = await fetch(`/api/projects/${id}`, {
+        method: 'PUT',
         body: JSON.stringify({
             project: { name, details, goal, deadline },
             rewards: { tier, description },
@@ -23,11 +24,11 @@ const projectCreationHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
 
-    projCreated.classList.remove('hide')
+    projEdited.classList.remove('hide')
 
     return setTimeout(returnHome, 3000);
 }
 
 document
-    .querySelector('#projectForm')
-    .addEventListener('submit', projectCreationHandler)
+    .querySelector('#editForm')
+    .addEventListener('submit', projectEditHandler)

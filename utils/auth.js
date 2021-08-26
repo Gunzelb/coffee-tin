@@ -1,5 +1,16 @@
 const { User } = require('../models')
 
+const forceLogin = async (req, res, next) => {
+    // If the user is not logged in, redirect the request to the login route
+    if (!req.session.logged_in) {
+        res.redirect('/login')
+
+        return next()
+    }
+    
+    return next()
+}
+
 const authenticate = async (req, res, next) => {
     if (req.session.logged_in) {
         const user = await User.findByPk(req.session.user_id, {
@@ -10,13 +21,13 @@ const authenticate = async (req, res, next) => {
 
         req.user = user.get({ plain: true })
 
-        return next()
+        return next();
+    } else {
+
+    req.user = null;
+
+    return next();
     }
-
-    // If the user is not logged in, redirect the request to the login route
-    res.redirect('/login')
-
-    return next()
 }
 
-module.exports = authenticate
+module.exports = {forceLogin, authenticate}
