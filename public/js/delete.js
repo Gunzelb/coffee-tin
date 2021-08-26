@@ -20,7 +20,7 @@ const projectDeleteHandler = async (event) => {
     cancelBtn.disabled = true
     projDeleted.classList.remove('hide')
 
-    //return setTimeout(returnHome, 3000);
+    return setTimeout(returnHome, 3000);
 }
 
 deleteBtn.onclick = projectDeleteHandler;
