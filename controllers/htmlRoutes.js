@@ -91,7 +91,7 @@ router.get('/project/delete/:id', async (req, res) => {
     }
 })
 
-router.get('/create', forceLogin, authenticate, (req, res) => {
+router.get('/create', forceLogin, authenticate, async (req, res) => {
     try {
         const userData = await User.findByPk(req.user.id, {
             attributes: { exclude: ['password'] },
