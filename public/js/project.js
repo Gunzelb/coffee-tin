@@ -31,6 +31,6 @@ const checkoutWorkAround = async (event) => {
 
 setProgress();
 
-// contributeBtn.onclick = checkoutCreateHandler;
+contributeBtn.onclick = checkoutCreateHandler;
 
-contributeBtn.onclick = checkoutWorkAround;
+// contributeBtn.onclick = checkoutWorkAround;
