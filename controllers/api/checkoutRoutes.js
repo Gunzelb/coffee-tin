@@ -4,11 +4,8 @@ const stripe = require('stripe')(
     'sk_test_51JPeAoBu0BpzrnK9JuyIKvV53ZCCOhJpCgZqqYVKG3jzgYeRQsF5SvxzIxNmDP5gGouCuRhLR1lfDYlS09B4u1AX008dqflHxY'
 )
 
-router.post(
-    '/create-checkout-session',
-    forceLogin,
-    authenticate,
-    async (req, res) => {
+router.post('/create-checkout-session', forceLogin, async (req, res) => {
+    try {
         const session = await stripe.checkout.sessions.create({
             line_items: [
                 {
@@ -24,7 +21,9 @@ router.post(
         })
 
         res.redirect(303, session.url)
+    } catch (err) {
+        res.status(400).json(err)
     }
-)
+})
 
 module.exports = router
