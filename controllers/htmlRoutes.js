@@ -94,6 +94,7 @@ router.get('/project/delete/:id', async (req, res) => {
 router.get('/create', forceLogin, authenticate, (req, res) => {
     try {
         res.render('create', {
+            ...user,
             logged_in: true,
         })
     } catch (err) {
