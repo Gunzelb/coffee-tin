@@ -26,7 +26,7 @@ const checkoutCreateHandler = async (event) => {
 
 const checkoutWorkAround = async (event) => {
     event.preventDefault()
-    document.location.replace(stripeURL)
+    document.location.href = stripeURL
 }
 
 setProgress()
