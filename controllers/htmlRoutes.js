@@ -116,7 +116,7 @@ router.get('/profile', forceLogin, authenticate, async (req, res) => {
             include: [{ model: Project }],
         })
 
-        
+        const user = userData.get({ plain: true })
 
         res.render('profile', {
             ...user,

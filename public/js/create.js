@@ -1,6 +1,8 @@
 const projCreated = document.querySelector('#projectCreated')
+const createBtn = document.querySelector('#create')
 
 const returnHome = () => {
+    createBtn.classList.remove('is-loading')
     document.location.replace('/')
 }
 
@@ -23,6 +25,7 @@ const projectCreationHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
 
+    createBtn.classList.add('is-loading')
     projCreated.classList.remove('hide')
 
     return setTimeout(returnHome, 3000);
