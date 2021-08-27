@@ -1,6 +1,8 @@
 const projEdited = document.querySelector('#projectEdited')
+const editBtn = document.querySelector('#edit')
 
 const returnHome = () => {
+    editBtn.classList.remove('is-loading')
     document.location.replace('/')
 }
 
@@ -24,6 +26,7 @@ const projectEditHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
 
+    editBtn.classList.add('is-loading')
     projEdited.classList.remove('hide')
 
     return setTimeout(returnHome, 3000);

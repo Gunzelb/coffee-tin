@@ -52,3 +52,8 @@ main {
     bottom:0px;
     width: 100%;
 }
+
+textarea {
+    white-space: pre-line;
+    white-space: pre-wrap;
+}
